@@ -1,0 +1,8 @@
+.git
+.dockerignore
+.byebug_history
+/log/*
+/tmp/*
+*.DS_Store
+.AppleDouble
+.LSOverride
