@@ -1,9 +1,9 @@
 # Created by https://www.gitignore.io/api/macos,rubymine,rails
 #
 # ### macOS ###
-# *.DS_Store
-# .AppleDouble
-# .LSOverride
+*.DS_Store
+.AppleDouble
+.LSOverride
 #
 # # Icon must end with two \r
 # Icon
@@ -101,7 +101,7 @@
 #
 # # dotenv
 # # TODO Comment out this rule if environment variables can be committed
-# .env
+.env
 #
 # ## Environment normalization:
 # /.bundle
@@ -126,3 +126,7 @@
 #
 # # End of https://www.gitignore.io/api/macos,rubymine,rails
 .idea
+tmp/cache/
+vendor/
+/.rspec
+/log/development.log
