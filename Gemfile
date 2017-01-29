@@ -12,6 +12,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'rack-cors'
 
 group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'ffaker'
   gem 'byebug', platform: :mri
 end
 
