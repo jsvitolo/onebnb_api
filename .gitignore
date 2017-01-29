@@ -125,3 +125,15 @@
 # .byebug_history
 #
 # # End of https://www.gitignore.io/api/macos,rubymine,rails
+/.idea/.generators
+/.idea/.rakeTasks
+/.idea/dictionaries/jonesvitolo.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/onebnb_api.iml
+/.idea/runConfigurations/Development__onebnb_api.xml
+/.idea/runConfigurations/Production__onebnb_api.xml
+/.idea/runConfigurations/spec__onebnb_api.xml
+/.idea/runConfigurations/test__onebnb_api.xml
+/.idea/vcs.xml
+/.idea/workspace.xml
