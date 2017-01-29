@@ -128,3 +128,5 @@
 .idea
 tmp/cache/
 vendor/
+/.rspec
+/log/development.log
