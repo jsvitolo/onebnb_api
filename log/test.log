@@ -1,0 +1,406 @@
+  [1m[35m (223.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "onebnb_api_test"[0m
+  [1m[35m (642.1ms)[0m  [1m[35mCREATE DATABASE "onebnb_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (84.6ms)[0m  [1m[35mCREATE TABLE "api_v1_properties" ("id" serial primary key, "title" character varying, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (72.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "name" character varying, "nickname" character varying, "image" character varying, "email" character varying, "tokens" json, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (39.5ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (39.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (42.0ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users" USING btree ("uid", "provider")[0m
+  [1m[35m (74.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (10.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170130202228')[0m
+  [1m[35m (14.1ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20170129150431');
+
+[0m
+  [1m[35m (69.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", 2017-02-02 00:33:11 UTC], ["updated_at", 2017-02-02 00:33:11 UTC]]
+  [1m[35m (11.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "api_v1_properties"[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+Processing by Api::V1::UsersController#update as HTML
+Completed 406 Not Acceptable in 316ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/properties" for 127.0.0.1 at 2017-02-02 00:33:12 +0000
+Processing by Api::V1::PropertiesController#index as HTML
+Completed 406 Not Acceptable in 346ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Processing by Api::V1::UsersController#update as HTML
+Completed 406 Not Acceptable in 306ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Started GET "/api/v1/properties" for 127.0.0.1 at 2017-02-02 00:34:33 +0000
+Processing by Api::V1::PropertiesController#index as HTML
+Completed 406 Not Acceptable in 350ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+Processing by Api::V1::UsersController#update as HTML
+Completed 406 Not Acceptable in 311ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+Processing by Api::V1::UsersController#update as HTML
+Completed 406 Not Acceptable in 310ms (ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "andera@kerlukerice.info"], ["uid", "andera@kerlukerice.info"], ["encrypted_password", "$2a$04$wWGhTcwkRIFSE28n51cdc.NjaYlWvli.nB8ChKEAlzeyfiHnhIQum"], ["confirmed_at", 2017-01-19 02:08:00 UTC], ["nickname", "Josep"], ["email", "andera@kerlukerice.info"], ["tokens", "{}"], ["created_at", 2017-01-19 02:08:00 UTC], ["updated_at", 2017-01-19 02:08:00 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"e3XKRAbtJZkN-Ra4D97YBA\":{\"token\":\"$2a$10$TunA7wtqaTcUkKj4qAw5h.IlhWRJWhAF5qruknj8SVvUqA621Zmr2\",\"expiry\":1487210882,\"last_token\":null,\"updated_at\":\"2017-02-02T02:08:02.466+00:00\"}}"], ["updated_at", 2017-02-02 02:08:02 UTC], ["id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Dolores Hessel"}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "andera@kerlukerice.info"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Dolores Hessel"], ["updated_at", 2017-02-02 02:08:02 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering api/v1/users/show.json.jbuilder
+  Rendered api/v1/users/show.json.jbuilder (0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"e3XKRAbtJZkN-Ra4D97YBA\":{\"token\":\"$2a$10$TunA7wtqaTcUkKj4qAw5h.IlhWRJWhAF5qruknj8SVvUqA621Zmr2\",\"expiry\":1487210882,\"last_token\":null,\"updated_at\":\"2017-02-02T02:08:02.617+00:00\"}}"], ["updated_at", 2017-02-02 02:08:02 UTC], ["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 133ms (Views: 38.9ms | ActiveRecord: 3.1ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "andera@kerlukerice.info"], ["uid", "andera@kerlukerice.info"], ["encrypted_password", "$2a$04$LI4XpkB4lMpN15WJeRdPO.XNO7xzWh3W.aoHnhWvDozh/pQck21Yy"], ["confirmed_at", 2017-01-19 02:08:00 UTC], ["nickname", "Josep"], ["email", "andera@kerlukerice.info"], ["tokens", "{}"], ["created_at", 2017-01-19 02:08:00 UTC], ["updated_at", 2017-01-19 02:08:00 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"lkYgVcS9BGBlWHfDjhQSMA\":{\"token\":\"$2a$10$OR287gN9PF.ko7agSt1KF.B9Ebu.W.5pDuEJZ97nPGu4NZca4i2CG\",\"expiry\":1487210882,\"last_token\":null,\"updated_at\":\"2017-02-02T02:08:02.703+00:00\"}}"], ["updated_at", 2017-02-02 02:08:02 UTC], ["id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Leonel VonRueden"}, "id"=>"2"}
+Filter chain halted as :authenticate_api_v1_user! rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (120.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "onebnb_api_test"[0m
+  [1m[35m (566.9ms)[0m  [1m[35mCREATE DATABASE "onebnb_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (91.9ms)[0m  [1m[35mCREATE TABLE "api_v1_properties" ("id" serial primary key, "title" character varying, "description" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (67.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "provider" character varying DEFAULT 'email' NOT NULL, "uid" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "confirmation_token" character varying, "confirmed_at" timestamp, "confirmation_sent_at" timestamp, "unconfirmed_email" character varying, "name" character varying, "nickname" character varying, "image" character varying, "email" character varying, "tokens" json, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "photo" character varying)[0m
+  [1m[35m (36.4ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_email" ON "users" USING btree ("email")[0m
+  [1m[35m (42.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")[0m
+  [1m[35m (38.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_uid_and_provider" ON "users" USING btree ("uid", "provider")[0m
+  [1m[35m (73.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (15.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170202040505')[0m
+  [1m[35m (12.6ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20170129150431'),
+('20170130202228');
+
+[0m
+  [1m[35m (73.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", 2017-02-02 04:18:46 UTC], ["updated_at", 2017-02-02 04:18:46 UTC]]
+  [1m[35m (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "kacie@rippin.info"], ["uid", "kacie@rippin.info"], ["encrypted_password", "$2a$04$ZtKBa9I4f0rtjVJ.LaLKQ.ZrpH/eKUrdO5YbQxHEaFYD5osJc.VRq"], ["confirmed_at", 2017-01-19 04:18:41 UTC], ["nickname", "Josep"], ["email", "kacie@rippin.info"], ["tokens", "{}"], ["created_at", 2017-01-19 04:18:41 UTC], ["updated_at", 2017-01-19 04:18:41 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Sl7eC4f8UHyTe6mtBNtycg\":{\"token\":\"$2a$10$iFA8wOLLC6glqX46SWanR.I1DjBj1xVXSYYkiTieHM1GkOr4ru0TC\",\"expiry\":1487218727,\"last_token\":null,\"updated_at\":\"2017-02-02T04:18:47.107+00:00\"}}"], ["updated_at", 2017-02-02 04:18:47 UTC], ["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Minta Bins"}, "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "kacie@rippin.info"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Minta Bins"], ["updated_at", 2017-02-02 04:18:47 UTC], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering api/v1/users/show.json.jbuilder
+  Rendered api/v1/users/show.json.jbuilder (0.2ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Sl7eC4f8UHyTe6mtBNtycg\":{\"token\":\"$2a$10$iFA8wOLLC6glqX46SWanR.I1DjBj1xVXSYYkiTieHM1GkOr4ru0TC\",\"expiry\":1487218727,\"last_token\":null,\"updated_at\":\"2017-02-02T04:18:47.243+00:00\"}}"], ["updated_at", 2017-02-02 04:18:47 UTC], ["id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 119ms (Views: 27.8ms | ActiveRecord: 2.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "kacie@rippin.info"], ["uid", "kacie@rippin.info"], ["encrypted_password", "$2a$04$zW.h5EzC0Im.IB/1ZqcvP.cwJ2qpVSvCFkV2GcH81Y.bLo3Zzl0bi"], ["confirmed_at", 2017-01-19 04:18:41 UTC], ["nickname", "Josep"], ["email", "kacie@rippin.info"], ["tokens", "{}"], ["created_at", 2017-01-19 04:18:41 UTC], ["updated_at", 2017-01-19 04:18:41 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Oi_CUZXNq7guDuCbCVUAQA\":{\"token\":\"$2a$10$fkF3DbMQxUAk4ODuA5CL/OO7.OTl70yXXFJP82bL6PgMtAJOVgFV2\",\"expiry\":1487218727,\"last_token\":null,\"updated_at\":\"2017-02-02T04:18:47.331+00:00\"}}"], ["updated_at", 2017-02-02 04:18:47 UTC], ["id", 2]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Herbert Kassulke"}, "id"=>"2"}
+Filter chain halted as :authenticate_api_v1_user! rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "sal@hueldach.com"], ["uid", "sal@hueldach.com"], ["encrypted_password", "$2a$04$thv.UZ2hLQARjobRCxQfhuLOp/yc0ZUJGggcU77AvT5rnBw5GYNgy"], ["confirmed_at", 2017-01-19 04:19:33 UTC], ["nickname", "Josep"], ["email", "sal@hueldach.com"], ["tokens", "{}"], ["created_at", 2017-01-19 04:19:33 UTC], ["updated_at", 2017-01-19 04:19:33 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"I9hcGj1Lu6sP5dvmnTjTaQ\":{\"token\":\"$2a$10$0QbabOs6T40qHd0mtgsk7.7HqqcOUGwrj847FRLnvZpciLialg4vO\",\"expiry\":1487218775,\"last_token\":null,\"updated_at\":\"2017-02-02T04:19:35.394+00:00\"}}"], ["updated_at", 2017-02-02 04:19:35 UTC], ["id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Jenni Bosco"}, "id"=>"3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "sal@hueldach.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Jenni Bosco"], ["updated_at", 2017-02-02 04:19:35 UTC], ["id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering api/v1/users/show.json.jbuilder
+  Rendered api/v1/users/show.json.jbuilder (0.3ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"I9hcGj1Lu6sP5dvmnTjTaQ\":{\"token\":\"$2a$10$0QbabOs6T40qHd0mtgsk7.7HqqcOUGwrj847FRLnvZpciLialg4vO\",\"expiry\":1487218775,\"last_token\":null,\"updated_at\":\"2017-02-02T04:19:35.532+00:00\"}}"], ["updated_at", 2017-02-02 04:19:35 UTC], ["id", 3]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 119ms (Views: 29.6ms | ActiveRecord: 3.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "sal@hueldach.com"], ["uid", "sal@hueldach.com"], ["encrypted_password", "$2a$04$S0dVnqVHABTg2m5tjlgUSukL7rWIuUKmxPDfue.8UZq1gnw6cUxxy"], ["confirmed_at", 2017-01-19 04:19:33 UTC], ["nickname", "Josep"], ["email", "sal@hueldach.com"], ["tokens", "{}"], ["created_at", 2017-01-19 04:19:33 UTC], ["updated_at", 2017-01-19 04:19:33 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"IzW1wVace4JYPbcqkpob8Q\":{\"token\":\"$2a$10$sTPtFoj47mS74TU19jjyIOuHJol43eluHhxStqshqagCZbbiht9Xu\",\"expiry\":1487218775,\"last_token\":null,\"updated_at\":\"2017-02-02T04:19:35.619+00:00\"}}"], ["updated_at", 2017-02-02 04:19:35 UTC], ["id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Bernetta Rau"}, "id"=>"4"}
+Filter chain halted as :authenticate_api_v1_user! rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "xzbdulia_raynor@johnstonfarrell.name"], ["uid", "xzbdulia_raynor@johnstonfarrell.name"], ["encrypted_password", "$2a$04$YkQTgo/sT/.Pmwl/CzQGuuKIDCwy6qCRJ9kLulsPBZBna3RuFrgp2"], ["confirmed_at", 2017-01-19 04:22:06 UTC], ["nickname", "Josep"], ["email", "xzbdulia_raynor@johnstonfarrell.name"], ["tokens", "{}"], ["created_at", 2017-01-19 04:22:06 UTC], ["updated_at", 2017-01-19 04:22:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"ol5wumnvPHcLWymOx3dXNA\":{\"token\":\"$2a$10$Tybh6IWYn07I92K10bMgJ.clv/J1GcNbccB3vdCZ4kuRD/nybniWe\",\"expiry\":1487218928,\"last_token\":null,\"updated_at\":\"2017-02-02T04:22:08.632+00:00\"}}"], ["updated_at", 2017-02-02 04:22:08 UTC], ["id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Lane Yost"}, "id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "xzbdulia_raynor@johnstonfarrell.name"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Lane Yost"], ["updated_at", 2017-02-02 04:22:08 UTC], ["id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering api/v1/users/show.json.jbuilder
+  Rendered api/v1/users/show.json.jbuilder (0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"ol5wumnvPHcLWymOx3dXNA\":{\"token\":\"$2a$10$Tybh6IWYn07I92K10bMgJ.clv/J1GcNbccB3vdCZ4kuRD/nybniWe\",\"expiry\":1487218928,\"last_token\":null,\"updated_at\":\"2017-02-02T04:22:08.764+00:00\"}}"], ["updated_at", 2017-02-02 04:22:08 UTC], ["id", 5]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 116ms (Views: 27.4ms | ActiveRecord: 4.1ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "xzbdulia_raynor@johnstonfarrell.name"], ["uid", "xzbdulia_raynor@johnstonfarrell.name"], ["encrypted_password", "$2a$04$JoU/Ls0gCON0qxWjcmobKuK.PoQuRnuAmHqiKW9fOJwC/PW1.K2xW"], ["confirmed_at", 2017-01-19 04:22:06 UTC], ["nickname", "Josep"], ["email", "xzbdulia_raynor@johnstonfarrell.name"], ["tokens", "{}"], ["created_at", 2017-01-19 04:22:06 UTC], ["updated_at", 2017-01-19 04:22:06 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"_Z1QuG_xDV7-54d0mPt0Ag\":{\"token\":\"$2a$10$w61c3LwkI.FmnpF3T4i3j.rS6SCqI.A/RU3wDKXfQZ/p5vSrdjKXO\",\"expiry\":1487218928,\"last_token\":null,\"updated_at\":\"2017-02-02T04:22:08.855+00:00\"}}"], ["updated_at", 2017-02-02 04:22:08 UTC], ["id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Demetrice Wolf", "photo"=>"data:image/png;base64,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\nwYsAAAAASUVORK5CYII=\n"}, "id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "xzbdulia_raynor@johnstonfarrell.name"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "photo" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["name", "Demetrice Wolf"], ["photo", "file.png"], ["updated_at", 2017-02-02 04:22:09 UTC], ["id", 6]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering api/v1/users/show.json.jbuilder
+  Rendered api/v1/users/show.json.jbuilder (0.1ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"_Z1QuG_xDV7-54d0mPt0Ag\":{\"token\":\"$2a$10$w61c3LwkI.FmnpF3T4i3j.rS6SCqI.A/RU3wDKXfQZ/p5vSrdjKXO\",\"expiry\":1487218928,\"last_token\":null,\"updated_at\":\"2017-02-02T04:22:09.144+00:00\"}}"], ["updated_at", 2017-02-02 04:22:09 UTC], ["id", 6]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 281ms (Views: 1.0ms | ActiveRecord: 3.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "xzbdulia_raynor@johnstonfarrell.name"], ["uid", "xzbdulia_raynor@johnstonfarrell.name"], ["encrypted_password", "$2a$04$yLSx7cqyQKDRxAT.WwZhT.5uanFnhYd2FyGs5Ek9Yoh9h8J03wKPy"], ["confirmed_at", 2017-01-19 04:22:06 UTC], ["nickname", "Josep"], ["email", "xzbdulia_raynor@johnstonfarrell.name"], ["tokens", "{}"], ["created_at", 2017-01-19 04:22:06 UTC], ["updated_at", 2017-01-19 04:22:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"OnfoZ2qQYl4wnO1yFrjzQg\":{\"token\":\"$2a$10$XXCZfeRbKNZQQC8TesL1SeuqgC7xbVJMYrz30iel9aShEOo60ZV4W\",\"expiry\":1487218929,\"last_token\":null,\"updated_at\":\"2017-02-02T04:22:09.235+00:00\"}}"], ["updated_at", 2017-02-02 04:22:09 UTC], ["id", 7]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Chan Mitchell"}, "id"=>"7"}
+Filter chain halted as :authenticate_api_v1_user! rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "leontine@cormier.ca"], ["uid", "leontine@cormier.ca"], ["encrypted_password", "$2a$04$SjvviV72Eijq0tH0A6TgCuXHMzUB7md.rO.hUiiMwcyZADWp1GzhS"], ["confirmed_at", 2017-01-19 04:22:54 UTC], ["nickname", "Josep"], ["email", "leontine@cormier.ca"], ["tokens", "{}"], ["created_at", 2017-01-19 04:22:54 UTC], ["updated_at", 2017-01-19 04:22:54 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"5G31XnX_CRKt2N5CmazNEg\":{\"token\":\"$2a$10$lIGNxYxmoY6DCftap36YDuXNm6Q7wu2dg1w/zd1vPT0KipdKapWFS\",\"expiry\":1487218976,\"last_token\":null,\"updated_at\":\"2017-02-02T04:22:56.828+00:00\"}}"], ["updated_at", 2017-02-02 04:22:56 UTC], ["id", 8]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Kallie Mohr"}, "id"=>"8"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "leontine@cormier.ca"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["name", "Kallie Mohr"], ["updated_at", 2017-02-02 04:22:56 UTC], ["id", 8]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering api/v1/users/show.json.jbuilder
+  Rendered api/v1/users/show.json.jbuilder (0.3ms)
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"5G31XnX_CRKt2N5CmazNEg\":{\"token\":\"$2a$10$lIGNxYxmoY6DCftap36YDuXNm6Q7wu2dg1w/zd1vPT0KipdKapWFS\",\"expiry\":1487218976,\"last_token\":null,\"updated_at\":\"2017-02-02T04:22:56.978+00:00\"}}"], ["updated_at", 2017-02-02 04:22:56 UTC], ["id", 8]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 129ms (Views: 37.1ms | ActiveRecord: 4.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "leontine@cormier.ca"], ["uid", "leontine@cormier.ca"], ["encrypted_password", "$2a$04$P9AYOzIWAaPO.tbf4uGyAOr5e5N3BKhwGH54tdl0HAHKMmfIlpgOW"], ["confirmed_at", 2017-01-19 04:22:54 UTC], ["nickname", "Josep"], ["email", "leontine@cormier.ca"], ["tokens", "{}"], ["created_at", 2017-01-19 04:22:54 UTC], ["updated_at", 2017-01-19 04:22:54 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"u_b2HvmtfBG5BAgS7Jggfg\":{\"token\":\"$2a$10$HIZeTTmLs.UWbHDGEr6sA.2k6fV/J9cB5r8piuOf.xSUHGD8onMY.\",\"expiry\":1487218977,\"last_token\":null,\"updated_at\":\"2017-02-02T04:22:57.070+00:00\"}}"], ["updated_at", 2017-02-02 04:22:57 UTC], ["id", 9]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Aide Kunze", "photo"=>"data:image/png;base64,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\nwYsAAAAASUVORK5CYII=\n"}, "id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."uid" = $1 LIMIT $2[0m  [["uid", "leontine@cormier.ca"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "name" = $1, "photo" = $2, "updated_at" = $3 WHERE "users"."id" = $4[0m  [["name", "Aide Kunze"], ["photo", "file.png"], ["updated_at", 2017-02-02 04:22:57 UTC], ["id", 9]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  Rendering api/v1/users/show.json.jbuilder
+  Rendered api/v1/users/show.json.jbuilder (0.0ms)
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[37mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2 FOR UPDATE[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"u_b2HvmtfBG5BAgS7Jggfg\":{\"token\":\"$2a$10$HIZeTTmLs.UWbHDGEr6sA.2k6fV/J9cB5r8piuOf.xSUHGD8onMY.\",\"expiry\":1487218977,\"last_token\":null,\"updated_at\":\"2017-02-02T04:22:57.282+00:00\"}}"], ["updated_at", 2017-02-02 04:22:57 UTC], ["id", 9]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Completed 200 OK in 206ms (Views: 1.0ms | ActiveRecord: 3.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("provider", "uid", "encrypted_password", "confirmed_at", "nickname", "email", "tokens", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["provider", "leontine@cormier.ca"], ["uid", "leontine@cormier.ca"], ["encrypted_password", "$2a$04$xmaJMMw8BCDg5E2eGMhpLOZHrT5M4b5cE.V8gesNoaptCzWSvuD0y"], ["confirmed_at", 2017-01-19 04:22:54 UTC], ["nickname", "Josep"], ["email", "leontine@cormier.ca"], ["tokens", "{}"], ["created_at", 2017-01-19 04:22:54 UTC], ["updated_at", 2017-01-19 04:22:54 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "tokens" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["tokens", "{\"Asch0hA5hqsy40R9PL1Nmg\":{\"token\":\"$2a$10$JRVBBTKvbilcdcfKkYjOquBGuWIFtnL7E/Sx3eRyl1R4Yzur/Icw2\",\"expiry\":1487218977,\"last_token\":null,\"updated_at\":\"2017-02-02T04:22:57.372+00:00\"}}"], ["updated_at", 2017-02-02 04:22:57 UTC], ["id", 10]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Processing by Api::V1::UsersController#update as JSON
+  Parameters: {"user"=>{"name"=>"Lillie Rodriguez"}, "id"=>"10"}
+Filter chain halted as :authenticate_api_v1_user! rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
