@@ -130,3 +130,4 @@ tmp/cache/
 vendor/
 /.rspec
 /log/development.log
+/log/test.log

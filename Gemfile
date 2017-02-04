@@ -10,10 +10,16 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'rack-cors'
+gem 'devise_token_auth'
+gem 'omniauth'
+
+gem 'carrierwave'
+gem 'carrierwave-base64'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'byebug', platform: :mri
 end
