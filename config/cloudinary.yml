@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dgxwmf9pr
+  api_key: '269289438548168'
+  api_secret: EU4IwSTMC09JXcN3w239n21oB2M
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dgxwmf9pr
+  api_key: '269289438548168'
+  api_secret: EU4IwSTMC09JXcN3w239n21oB2M
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dgxwmf9pr
+  api_key: '269289438548168'
+  api_secret: EU4IwSTMC09JXcN3w239n21oB2M
+  enhance_image_tag: true
+  static_image_support: false
