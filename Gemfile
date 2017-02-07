@@ -16,6 +16,10 @@ gem 'omniauth'
 gem 'carrierwave'
 gem 'carrierwave-base64'
 gem 'mini_magick'
+gem 'cloudinary'
+
+gem 'geocoder'
+gem 'searchkick'
 
 group :development, :test do
   gem 'rspec-rails'
